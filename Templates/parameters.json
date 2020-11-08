@@ -1,0 +1,33 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "sites_ImageAPI20201108184500_name": {
+            "value": null
+        },
+        "storageAccounts_ssp608694_name": {
+            "value": null
+        },
+        "serverfarms_GermanyWestCentralPlan_name": {
+            "value": null
+        },
+        "sites_QueueTriggerAPI20201108184219_name": {
+            "value": null
+        },
+        "actionGroups_Application_Insights_Smart_Detection_name": {
+            "value": null
+        },
+        "smartdetectoralertrules_failure_anomalies___imageapi20201108184500_name": {
+            "value": null
+        },
+        "smartdetectoralertrules_failure_anomalies___queuetriggerapi20201108184219_name": {
+            "value": null
+        },
+        "components_imageapi20201108184500_externalid": {
+            "value": null
+        },
+        "components_queuetriggerapi20201108184219_externalid": {
+            "value": null
+        }
+    }
+}
