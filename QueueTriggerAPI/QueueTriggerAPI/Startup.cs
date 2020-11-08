@@ -27,7 +27,6 @@ namespace QueueTriggerAPI
         {
             log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
 
-            ImageTextHelper imageTextHelper = new ImageTextHelper();
             BlobHelper blobHelper = new BlobHelper();
             MessageSeperator messageSeperator = new MessageSeperator();
 
@@ -37,9 +36,7 @@ namespace QueueTriggerAPI
                 byte[] queueItemByteArray = Convert.FromBase64String(myQueueItem);
                 string decodedString = Encoding.UTF8.GetString(queueItemByteArray);
                 QueueItem queueItem = messageSeperator.Seperate(decodedString);
-                string searchResult = GetTextFromApi(queueItem.message_).Result;
-                Image imageResult =  GetImageFromApi(queueItem.message_).Result;
-                Image mergedImage = imageTextHelper.Merge(searchResult, imageResult).Result;
+                Image mergedImage = ExecuteApiCallsAsync(queueItem).Result;
                 blobHelper.ExecuteBlobLogic(mergedImage, queueItem);
             }
             catch (Exception e)
@@ -50,7 +47,16 @@ namespace QueueTriggerAPI
 
         }
 
-        static async Task<string> GetTextFromApi(string search)
+        static async Task<Image> ExecuteApiCallsAsync(QueueItem queueItem)
+        {
+            ImageTextHelper imageTextHelper = new ImageTextHelper();
+            string searchResult = await GetTextFromApi(queueItem.message_);
+            Image imageResult = await GetImageFromApi(queueItem.message_);
+            Image mergedImage = imageTextHelper.Merge(searchResult, imageResult).Result;
+            return mergedImage;
+        }
+
+        static async Task<dynamic> GetTextFromApi(string search)
         {
             HttpClient client = new HttpClient();
             string url = "https://api.datamuse.com";
