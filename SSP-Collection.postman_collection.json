@@ -1,0 +1,43 @@
+{
+	"info": {
+		"_postman_id": "018faedb-e32c-4836-8211-d326207d21ae",
+		"name": "SSP-Collection",
+		"description": "Api that will return an Image based on your search with a synonym printed onto it as text.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get image",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "https://imageapi20201108184500.azurewebsites.net/api/image",
+					"protocol": "https",
+					"host": [
+						"imageapi20201108184500",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"image"
+					]
+				},
+				"description": "Request that gets an image link linking to an image generated based on your search term.\r\nUse the \"search\" param to pass a term this term has to be an english word."
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
