@@ -38,7 +38,7 @@ namespace QueueTriggerAPI
                 string decodedString = Encoding.UTF8.GetString(queueItemByteArray);
                 QueueItem queueItem = messageSeperator.Seperate(decodedString);
                 string searchResult = GetTextFromApi(queueItem.message_).Result;
-                Image imageResult = GetImageFromApi(queueItem.message_).Result;
+                Image imageResult =  GetImageFromApi(queueItem.message_).Result;
                 Image mergedImage = imageTextHelper.Merge(searchResult, imageResult).Result;
                 blobHelper.ExecuteBlobLogic(mergedImage, queueItem);
             }
@@ -72,14 +72,12 @@ namespace QueueTriggerAPI
                     }
                 }
             }
-            // TO-DO throw an exception here maybe?
             return "No valid JSON returned";
         }
 
         
         static async Task<Image> GetImageFromApi(string search)
         {
-            // TO-DO properly apply params in headers instead of strings
             ImageHelper imageHelper = new ImageHelper();
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri($"https://api.unsplash.com/");
@@ -95,10 +93,6 @@ namespace QueueTriggerAPI
 
             Image image = imageHelper.GetImage(deserializedImageJson.urls.small);
 
-            if(1+1==2)
-            {
-                Console.WriteLine();
-            }
             return image;
         }
         
