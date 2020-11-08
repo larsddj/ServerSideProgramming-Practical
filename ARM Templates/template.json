@@ -528,7 +528,7 @@
                 "message": "Created via a push deployment",
                 "start_time": "2020-11-08T18:19:58.8638282Z",
                 "end_time": "2020-11-08T18:20:07.4771452Z",
-                "active": true
+                "active": false
             }
         },
         {
@@ -547,6 +547,25 @@
                 "message": "Created via a push deployment",
                 "start_time": "2020-11-08T19:21:57.6640468Z",
                 "end_time": "2020-11-08T19:22:06.4214876Z",
+                "active": false
+            }
+        },
+        {
+            "type": "Microsoft.Web/sites/deployments",
+            "apiVersion": "2018-11-01",
+            "name": "[concat(parameters('sites_ImageAPI20201108184500_name'), '/3913e6f4dbbe4dbf9b2bca675ec4350a')]",
+            "location": "Germany West Central",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_ImageAPI20201108184500_name'))]"
+            ],
+            "properties": {
+                "status": 4,
+                "author_email": "N/A",
+                "author": "N/A",
+                "deployer": "ZipDeploy",
+                "message": "Created via a push deployment",
+                "start_time": "2020-11-08T22:39:16.595136Z",
+                "end_time": "2020-11-08T22:39:36.5819539Z",
                 "active": true
             }
         },
@@ -586,6 +605,25 @@
                 "start_time": "2020-11-08T17:48:59.9599798Z",
                 "end_time": "2020-11-08T17:49:31.1709611Z",
                 "active": false
+            }
+        },
+        {
+            "type": "Microsoft.Web/sites/deployments",
+            "apiVersion": "2018-11-01",
+            "name": "[concat(parameters('sites_QueueTriggerAPI20201108184219_name'), '/961e51dc803d48c38fa52161ac437879')]",
+            "location": "Germany West Central",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_QueueTriggerAPI20201108184219_name'))]"
+            ],
+            "properties": {
+                "status": 4,
+                "author_email": "N/A",
+                "author": "N/A",
+                "deployer": "ZipDeploy",
+                "message": "Created via a push deployment",
+                "start_time": "2020-11-08T22:39:30.2188782Z",
+                "end_time": "2020-11-08T22:39:48.9285471Z",
+                "active": true
             }
         },
         {
@@ -643,38 +681,6 @@
                 "start_time": "2020-11-08T18:05:48.6416886Z",
                 "end_time": "2020-11-08T18:05:57.9709244Z",
                 "active": false
-            }
-        },
-        {
-            "type": "Microsoft.Web/sites/functions",
-            "apiVersion": "2018-11-01",
-            "name": "[concat(parameters('sites_ImageAPI20201108184500_name'), '/Function')]",
-            "location": "Germany West Central",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_ImageAPI20201108184500_name'))]"
-            ],
-            "properties": {
-                "script_root_path_href": "https://imageapi20201108184500.azurewebsites.net/admin/vfs/site/wwwroot/Function/",
-                "script_href": "https://imageapi20201108184500.azurewebsites.net/admin/vfs/site/wwwroot/bin/ImageAPI.dll",
-                "config_href": "https://imageapi20201108184500.azurewebsites.net/admin/vfs/site/wwwroot/Function/function.json",
-                "href": "https://imageapi20201108184500.azurewebsites.net/admin/functions/Function",
-                "config": {}
-            }
-        },
-        {
-            "type": "Microsoft.Web/sites/functions",
-            "apiVersion": "2018-11-01",
-            "name": "[concat(parameters('sites_QueueTriggerAPI20201108184219_name'), '/Function')]",
-            "location": "Germany West Central",
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('sites_QueueTriggerAPI20201108184219_name'))]"
-            ],
-            "properties": {
-                "script_root_path_href": "https://queuetriggerapi20201108184219.azurewebsites.net/admin/vfs/site/wwwroot/Function/",
-                "script_href": "https://queuetriggerapi20201108184219.azurewebsites.net/admin/vfs/site/wwwroot/bin/QueueTriggerAPI.dll",
-                "config_href": "https://queuetriggerapi20201108184219.azurewebsites.net/admin/vfs/site/wwwroot/Function/function.json",
-                "href": "https://queuetriggerapi20201108184219.azurewebsites.net/admin/functions/Function",
-                "config": {}
             }
         },
         {
